@@ -1,7 +1,7 @@
 class Display
   def display_intro_screen
     puts ''
-    puts "                                               T I N Y T U N E S  S C R A P E R\n"
+    puts "                                               T I N Y T U N E S    S C R A P E R\n"
     puts '                                                                 . . .'
     puts '                                                               . - - :'
     puts '                                                            . - - :'
@@ -17,7 +17,7 @@ class Display
     puts '                                                  . : : : . . . : : : : .'
     puts "                                                     .  .  .     . . .\n\n"
     puts '                                                           V..1.0 '
-    puts "                                            An iTunes Appstore games Mini Scraping Tool\n\n\n"
+    puts "                                          An iTunes App Store games Mini Scraping Tool\n\n\n"
     puts '   HOW TO:-'
     puts '   ========'
     puts '     [Type  \'pop\', and press Enter/ Return key] -> To list POPULAR iTunes Appstore games'
