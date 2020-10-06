@@ -31,12 +31,11 @@ def scraper
      csv << games_array
    end
    # Print CSV to console
-   CSV.foreach('iOSGames.csv') do |row|
+   CSV.foreach('../lib/iOSGames.csv') do |row|
      puts row
    end
   
   Pry.start(binding)
-
 end
 
 scraper
