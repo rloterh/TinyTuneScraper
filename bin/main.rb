@@ -5,7 +5,6 @@ require 'httparty'
 require 'Pry'
 require 'csv'
 require 'io/console'
-require 'io/console'
 
 require_relative '../lib/Display.rb'
 screen_o = Display.new
