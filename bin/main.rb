@@ -11,6 +11,20 @@ $post_game = ''
 $sub_path = ''
 $index_path = ''
 
+def check_choice
+  choice_input = gets.strip.upcase
+  if choice_input.match(/^[[:alpha:]]$/)
+    $sub_path = "?letter=#{choice_input}"
+  elsif choice_input == 'POP'
+    $sub_path = ''
+  elsif choice_input == 'ALL'
+    $sub_path = '?letter=*'
+  else
+    puts "          PLEASE INPUT A CORRECT OPTION TO CONTINUE..\n"
+    check_choice
+  end
+end
+
 def scraper
   url = "https://apps.apple.com/us/genre/ios-games/id6014/#{$sub_path}#{$index_path}"
 
@@ -35,7 +49,9 @@ def scraper
      puts row
    end
   
-  Pry.start(binding)
+  # Pry.start(binding)
 end
+
+check_choice
 
 scraper
