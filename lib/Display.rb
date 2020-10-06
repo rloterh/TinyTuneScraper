@@ -1,4 +1,4 @@
-class Ascii
+class Display
   def display_intro_screen
     puts ''
     puts "                                               T I N Y T U N E S  S C R A P E R\n"

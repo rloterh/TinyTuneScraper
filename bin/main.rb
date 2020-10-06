@@ -6,8 +6,8 @@ require 'Pry'
 require 'csv'
 require 'io/console'
 
-require_relative '../lib/Ascii.rb'
-screen_o = Ascii.new
+require_relative '../lib/Display.rb'
+screen_o = Display.new
 
 $post_game = ''
 $sub_path = ''
