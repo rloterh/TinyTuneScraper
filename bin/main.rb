@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 
-puts 'hello ruby'
 require 'nokogiri'
 require 'httparty'
 require 'Pry'
 require 'csv'
 require 'io/console'
+
+require_relative '../lib/Ascii.rb'
+screen_o = Ascii.new
 
 $post_game = ''
 $sub_path = ''
@@ -17,7 +19,7 @@ def check_choice
     $sub_path = "?letter=#{choice_input}"
   elsif choice_input == 'POP'
     $sub_path = ''
-  elsif choice_input == 'ALL'
+  elsif choice_input == 'MORE'
     $sub_path = '?letter=*'
   else
     puts "          PLEASE INPUT A CORRECT OPTION TO CONTINUE..\n"
@@ -51,6 +53,8 @@ def scraper
   
   # Pry.start(binding)
 end
+
+screen_o.display_intro_screen
 
 check_choice
 
