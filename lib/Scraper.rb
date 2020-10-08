@@ -15,7 +15,6 @@ class Scraper
 
     games_array = []
 
-    # parse the data
     parsed_page.css('[id = "content"]').css('[id = "selectedgenre"]').css('[id = "selectedcontent"]').map do |a|
       $post_game = a.text
       games_array.push($post_game)
@@ -34,7 +33,6 @@ class Scraper
       puts "press '>' to goto next indexed Page for Games indexed #{$choice_input}"
       puts "press '<' to goto previous indexed Page"
 
-      # navigate_index(page_index, $index_path, scraper)
       next_input = STDIN.getch
 
       case next_input
