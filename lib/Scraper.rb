@@ -27,16 +27,17 @@ class Scraper
   end
 
   def check_index
-    goto_next_idex = "press '>' (.) to goto next indexed Page for Games indexed #{$choice_input}"
-    goto_prev_index = "press '<' (,) to goto previous indexed Page"
+    goto_next_idex = "press '>' or (.) to goto next indexed Page for Games indexed #{$choice_input}"
+    goto_prev_index = "press '<' or (,) to goto previous indexed for Games indexed #{$choice_input}"
     page_index = 1
-    page_index = 1 if page index == 0
+    page_index = 1 if page_index == 0
     if page_index == 1
-      puts "This is Page No. #{page_index} of index #{$choice_input}"
+      puts ":::This is Page No. #{page_index} of iTunes App Store games of index #{$choice_input}:::\n\n"
       goto_prev_index = ''
-    else goto_prev_index = "press '<' (,) to goto previous indexed Page"
     end
     while $has_index
+
+      goto_prev_index = "press '<' or (,) to goto previous indexed Page for Games indexed #{$choice_input}" if page_index >= 2
 
       puts "#{goto_next_idex}"
       puts "#{goto_prev_index}"
@@ -53,7 +54,7 @@ class Scraper
         $index_path = "&page=#{page_index}#page"
         scrape
       end
-      puts "This is Page No. #{page_index} of index #{$choice_input} \n\n"
+      puts ":::This is Page No. #{page_index} of iTunes App Store games index #{$choice_input}:::\n\n"
       $has_index = false if $post_game.size < 500
     end
   end
