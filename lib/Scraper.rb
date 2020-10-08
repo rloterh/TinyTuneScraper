@@ -4,7 +4,7 @@ class Scraper
   $index_path = ''
   $has_index = true
 
-  require_relative '../lib/CSVHandler.rb'
+  require_relative '../lib/csv_handler.rb'
   $csv_o = CSVHandler.new
 
   def scrape
@@ -32,7 +32,7 @@ class Scraper
     page_index = 1
     page_index = 1 if page_index == 0
     if page_index == 1
-      puts ":::This is Page No. #{page_index} of iTunes App Store games of index #{$choice_input}:::\n\n"
+      puts ":::This is Page No. #{page_index} of iTunes App Store games of index #{$choice_input}:::\n\t:::Also see output in  'iOSGames.csv'  file:::\n\n"
       goto_prev_index = ''
     end
     while $has_index
@@ -54,8 +54,14 @@ class Scraper
         $index_path = "&page=#{page_index}#page"
         scrape
       end
-      puts ":::This is Page No. #{page_index} of iTunes App Store games index #{$choice_input}:::\n\n"
-      $has_index = false if $post_game.size < 500
+      puts ":::This is Page No. #{page_index} of iTunes App Store games index #{$choice_input}:::\n\t:::Also see output in  'iOSGames.csv'  file:::\n\n"
+      if $post_game.size < 500
+        $has_index = false
+        puts 'Thanks for scraping iTunes App Store games'
+        sleep(2)
+        puts "Exiting Scraper now..\n\n"
+        sleep(1)
+      end
     end
   end
 end
