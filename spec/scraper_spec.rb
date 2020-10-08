@@ -1,4 +1,4 @@
-require_relative '../lib/CSVHandler.rb'
+require_relative '../lib/scraper.rb'
   
 describe Scraper do
   let(:scraper_o) { Scraper.new }
