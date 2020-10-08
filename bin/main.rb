@@ -59,6 +59,8 @@ end
 def check_index
   page_index = 1
   while $has_index
+    # $has_index = false if $post_game.match(/^[[:blank:]]$/)
+    
     puts "press '>' to goto next indexed Page for Games indexed #{$choice_input}"
     puts "press '<' to goto previous indexed Page"
     next_input = STDIN.getch
@@ -72,12 +74,14 @@ def check_index
         page_index -= 1
         $index_path = "&page=#{page_index}#page"
         scraper
-      else
-        page_index = 0
     end
+  #test
+  $has_index = false if $post_game.size < 500
   puts "Indexed page is #{page_index}"
   puts "index path is #{$index_path}"
-  $has_index = false if $post_game.match(/^[[:blank:]]+$/)
+  puts "#{$has_index}"
+  puts "my array count is #{$post_game.size}"
+  
   end
 end
 
