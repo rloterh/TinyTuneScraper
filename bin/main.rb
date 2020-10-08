@@ -29,12 +29,12 @@ def check_choice
   end
 end
 
-  #test
-  # $has_index = false if $post_game.size < 500
-  # puts "Indexed page is #{page_index}"
-  # puts "index path is #{$index_path}"
-  # puts "#{$has_index}"
-  # puts "my array count is #{$post_game.size}"
+# test
+# $has_index = false if $post_game.size < 500
+# puts "Indexed page is #{page_index}"
+# puts "index path is #{$index_path}"
+# puts "#{$has_index}"
+# puts "my array count is #{$post_game.size}"
 
 screen_o.display_intro_screen
 

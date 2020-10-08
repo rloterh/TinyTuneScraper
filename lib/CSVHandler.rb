@@ -1,5 +1,4 @@
 class CSVHandler
-
   $itune_games_csv = '../lib/iOSGames.csv'
 
   def write_content(arr)
@@ -14,5 +13,4 @@ class CSVHandler
       puts row
     end
   end
-
 end
