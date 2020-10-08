@@ -1,12 +1,24 @@
 require_relative '../lib/CSVHandler.rb'
   
 describe Scraper do
-  let(:scraper) { Scraper.new }
-  let(:csv_o) { CSVHandler.new }
+  let(:scraper_o) { Scraper.new }
+  let(:post_game) { ''}
+  let(:sub_path) {'ios/games'}
+  let(:index_path) {'/page2'}
+  let(:has_index) { true}
   let(:url) { CSVHandler.new(search_address) }
   let(:search_page) { CSVHandler.new(search_address) }
 
-  describe
+  describe '#Scraper' do
+    it 'creates a new scraper object'
+    expect(scraper_o.class).to eql(Scraper)
+  end
+
+  describe '#scrape' do
+    let(raw_url){"https://apps.apple.com/us/genre/ios-games/id6014/#{sub_path}#{index_path}"}
+    it 'sets url to contain a string' do
+      expect(raw_url).to be_a(String)
+    end
 
 end
 
