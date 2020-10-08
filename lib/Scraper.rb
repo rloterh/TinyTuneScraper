@@ -27,11 +27,19 @@ class Scraper
   end
 
   def check_index
+    goto_next_idex = "press '>' (.) to goto next indexed Page for Games indexed #{$choice_input}"
+    goto_prev_index = "press '<' (,) to goto previous indexed Page"
     page_index = 1
+    page_index = 1 if page index == 0
+    if page_index == 1
+      puts "This is Page No. #{page_index} of index #{$choice_input}"
+      goto_prev_index = ''
+    else goto_prev_index = "press '<' (,) to goto previous indexed Page"
+    end
     while $has_index
 
-      puts "press '>' to goto next indexed Page for Games indexed #{$choice_input}"
-      puts "press '<' to goto previous indexed Page"
+      puts "#{goto_next_idex}"
+      puts "#{goto_prev_index}"
 
       next_input = STDIN.getch
 
@@ -45,6 +53,7 @@ class Scraper
         $index_path = "&page=#{page_index}#page"
         scrape
       end
+      puts "This is Page No. #{page_index} of index #{$choice_input} \n\n"
       $has_index = false if $post_game.size < 500
     end
   end

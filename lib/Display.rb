@@ -40,5 +40,5 @@ class Display
       puts "          PLEASE INPUT A CORRECT OPTION TO CONTINUE..\n"
       check_choice
     end
-  end  
+  end
 end

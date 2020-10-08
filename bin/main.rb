@@ -11,9 +11,6 @@ require_relative '../lib/Scraper.rb'
 screen_o = Display.new
 scraper_o = Scraper.new
 
-
-
-
 screen_o.display_intro_screen
 
 screen_o.check_choice
