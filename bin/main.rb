@@ -15,6 +15,4 @@ screen_o.display_intro_screen
 
 scraper_o.check_choice
 
-scraper_o.scrape
-
 scraper_o.check_index
