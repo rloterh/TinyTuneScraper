@@ -1,85 +1,66 @@
+require 'nokogiri'
+require 'httparty'
 require './lib/scraper'
-  
+
 describe Scraper do
-  let(:scraper_o) { Scraper.new }
-  let(:post_game) { ''}
-  let(:sub_path) {'ios/games'}
-  let(:index_path) {'/page2'}
-  let(:has_index) { true}
-  let(:url) { CSVHandler.new(search_address) }
-  let(:search_page) { CSVHandler.new(search_address) }
+  let(:scraper) { Scraper.new }
+  let(:user_choice) { 'pop' }
+  let(:page_url) { 'https://apps.apple.com/us/genre/ios-games/id6014' }
+  let(:parsed_page) { Nokogiri::HTML(HTTParty.get(page_url)) }
 
-  describe '#Scraper' do
-    it 'creates a new scraper object'
-    expect(scraper_o.class).to eql(Scraper)
-  end
-
-  describe '#scrape' do
-    let(raw_url){"https://apps.apple.com/us/genre/ios-games/id6014/#{sub_path}#{index_path}"}
-    it 'sets url to contain a string' do
-      expect(raw_url).to be_a(String)
+  context '#initialize' do
+    example 'creates an instance of the Scraper class' do
+      expect(scraper.class).to eql(Scraper)
     end
 
+    example 'Check if initial post_game variable is empty' do
+      expect(scraper.post_game).to be_empty
+    end
+
+    example 'Check if initial sub_path variable is empty' do
+      expect(scraper.sub_path).to be_empty
+    end
+
+    example 'Check if initial index_path variable is empty' do
+      expect(scraper.index_path).to be_empty
+    end
+
+    example 'Check if initial has_index variable is true' do
+      expect(scraper.has_index).to be true
+    end
+
+    example 'Check if initial choice_input variable is empty' do
+      expect(scraper.choice_input).to be_empty
+    end
+  end
+
+  context '#scrape' do
+    let(:itune_array) { [] }
+    example 'itune_array should returns an array of strings' do
+      expect(itune_array).to be_a(Array)
+    end
+    example 'expects itunes_array to return string values' do
+      itune_array.each { |e| expect(e).to be_a(String) }
+    end
+  end
+
+  context '#check_choice' do
+    let(:user_choice) { ' c ' }
+    let(:verify_input) { user_choice.strip.upcase }
+    example 'verify_input should be true for single character' do
+      expect(verify_input).to match(/^[[:alpha:]]$/)
+      expect(verify_input).to match('C')
+    end
+  end
+
+  context '#check_index' do
+    let(:more_index) { false }
+    example 'should continue if more pages' do
+      parsed_page.css('[id = "content"]').css('[id = "selectedgenre"]').css('[id = "selectedcontent"]').map do |a|
+        scraper.post_game = a.text
+      end
+      scraped_text = scraper.post_game
+      expect(scraped_text.size > 500).to be true
+    end
+  end
 end
-
-# class Scraper
-#   $post_game = ''
-#   $sub_path = ''
-#   $index_path = ''
-#   $has_index = true
-
-#   require_relative '../lib/CSVHandler.rb'
-#   $csv_o = CSVHandler.new
-
-#   def scrape
-#     url = "https://apps.apple.com/us/genre/ios-games/id6014/#{$sub_path}#{$index_path}"
-
-#     unparsed_page = HTTParty.get(url)
-#     parsed_page = Nokogiri::HTML(unparsed_page)
-
-#     games_array = []
-
-#     parsed_page.css('[id = "content"]').css('[id = "selectedgenre"]').css('[id = "selectedcontent"]').map do |a|
-#       $post_game = a.text
-#       games_array.push($post_game)
-#     end
-
-#     $csv_o.write_content(games_array)
-#     $csv_o.print_content
-
-#     # Pry.start(binding)
-#   end
-
-#   def check_index
-#     goto_next_idex = "press '>' or (.) to goto next indexed Page for Games indexed #{$choice_input}"
-#     goto_prev_index = "press '<' or (,) to goto previous indexed for Games indexed #{$choice_input}"
-#     page_index = 1
-#     page_index = 1 if page_index == 0
-#     if page_index == 1
-#       puts ":::This is Page No. #{page_index} of iTunes App Store games of index #{$choice_input}:::\n\n"
-#       goto_prev_index = ''
-#     end
-#     while $has_index
-
-#       goto_prev_index = "press '<' or (,) to goto previous indexed Page for Games indexed #{$choice_input}" if page_index >= 2
-
-#       puts "#{goto_next_idex}"
-#       puts "#{goto_prev_index}"
-
-#       next_input = STDIN.getch
-
-#       case next_input
-#       when '.'
-#         page_index += 1
-#         $index_path = "&page=#{page_index}#page"
-#         scrape
-#       when ','
-#         page_index -= 1
-#         $index_path = "&page=#{page_index}#page"
-#         scrape
-#       end
-#       puts ":::This is Page No. #{page_index} of iTunes App Store games index #{$choice_input}:::\n\n"
-#       $has_index = false if $post_game.size < 500
-#     end
-#   end
-# end
