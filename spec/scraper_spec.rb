@@ -1,4 +1,4 @@
-require_relative '../lib/scraper.rb'
+require './lib/scraper'
   
 describe Scraper do
   let(:scraper_o) { Scraper.new }
