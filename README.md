@@ -15,11 +15,11 @@ The source for the scraping content is [Apple iTunes App Store games](https://ap
 - Clone this project
 - Install dependencies using the command **_bundle install_**
 - Optionally you can store the dependencies individually using the commands below:
-  - **_gem install nokogiri_**_ruby main.rb_**
+  - **_gem install nokogiri_**
   - **_gem install httparty_**
   - **_gem install csv_**
   - **_gem install pry_**
-- When completed with dependencies installation, run the command **_cd bin_** by **_ruby main.rb_**
+- When completed with dependencies installation, run the commands **_cd bin_** and **_ruby main.rb_**
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
