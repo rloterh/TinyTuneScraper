@@ -68,4 +68,6 @@ Metrics/AbcSize:
   Enabled: false
 Style/NonNilCheck:
   Enabled: false
+Style/Encoding:
+  Enabled: false
  
