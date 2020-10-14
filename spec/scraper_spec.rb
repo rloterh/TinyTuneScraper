@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'httparty'
-require './lib/scraper'
+require_relative '../lib/scraper'
 
 describe Scraper do
   let(:scraper) { Scraper.new }

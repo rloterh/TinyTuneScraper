@@ -9,10 +9,16 @@ require_relative '../lib/scraper'
 scraper_o = Scraper.new
 
 def exit_remarks
-  puts 'Thanks for scraping iTunes App Store games'
+  puts 'Thanks for scraping iTunes App Store games with << TinyTuneScraper 1.0 >>'
   sleep(2)
   puts "Exiting Scraper now..\n\n"
   sleep(1)
+end
+
+def to_console
+  CSV.foreach('iOSGames.csv') do |row|
+    puts row
+  end
 end
 
 def navigate_index
@@ -34,7 +40,7 @@ def display_intro_screen
   puts '                                              : - - - - - - - - - - - - - : : .'
   puts '                                             . - - - - - - - - - - - - - -:'
   puts '                                             : - - - - - - - - - - - - - -:'
-  puts '                                             : - - - - - - - - - - - - - -:'
+  puts '                                             : - - - - - - - - - - - - - :'
   puts '                                             : - - - - - - - - - - - - - -:'
   puts '                                              . - - - - - - - - - - - - - - - .'
   puts '                                               . - - - - - - - - - - - - - - .'
@@ -45,9 +51,9 @@ def display_intro_screen
   puts "                                          An iTunes App Store games Mini Scraping Tool\n\n\n"
   puts '   HOW TO:-'
   puts '   ========'
-  puts '     [Type  \'pop\', and press Enter/ Return key] -> To list POPULAR iTunes Appstore games'
-  puts '     [Type a letter, |A-Z|, and press Enter/ Return] -> To list the corresponding Alphabetical game index'
-  puts '     [Type  \'more\', and press Enter/ Return key] -> To list MORE iTunes Appstore games'
+  puts '     [Type  \'pop\', and press Enter/ Return key] ->> To list POPULAR iTunes Appstore games'
+  puts '     [Type a letter, |A-Z|, and press Enter/ Return] ->> To list the corresponding Alphabetical game index'
+  puts '     [Type  \'more\', and press Enter/ Return key] ->> To list MORE iTunes Appstore games'
 end
 
 display_intro_screen

@@ -54,7 +54,6 @@ class Scraper
       @goto_next_index = ''
       @goto_prev_index = ''
       exit_remarks
-      return
     end
 
     if @page_index == 1

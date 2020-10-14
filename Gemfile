@@ -1,9 +1,5 @@
 source 'https://rubygems.org'
-
-require 'rubygems'
-require 'bundler/setup'
-
-gem 'csv'
-gem 'httparty'
-gem 'nokogiri'
-gem 'rubocop'
+gem 'bundler', '~> 2.1.4'
+gem 'nokogiri', '~> 1.10', '>= 1.10.9'
+gem 'rspec', '~> 3.9'
+gem 'rubocop', '~>0.88.0'

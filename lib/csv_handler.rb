@@ -6,8 +6,6 @@ module CSVHandler
   end
 
   def print_content
-    CSV.foreach('iOSGames.csv') do |row|
-      puts row
-    end
+    to_console
   end
 end
