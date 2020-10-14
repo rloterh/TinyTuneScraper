@@ -76,3 +76,6 @@ Style/NumericPredicate:
   Enabled: false
 Layout/LineLength:
   Enabled: false
+Naming/FileName:
+  Enabled: false
+  
