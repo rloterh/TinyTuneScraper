@@ -2,14 +2,27 @@
 
 require 'nokogiri'
 require 'httparty'
-require 'Pry'
 require 'csv'
 require 'io/console'
 
-require_relative '../lib/display.rb'
 require_relative '../lib/scraper.rb'
-screen_o = Display.new
 scraper_o = Scraper.new
+
+def exit_remarks
+  puts 'Thanks for scraping iTunes App Store games'
+  sleep(2)
+  puts "Exiting Scraper now..\n\n"
+  sleep(1)
+end
+
+def navigate_index
+  puts @goto_next_index.to_s
+  puts @goto_prev_index.to_s
+end
+
+def index_info
+  puts ":::This is Page No. #{@page_index} of iTunes App Store games of index #{@choice_input}:::\n\t:::Also see output in << iOSGames.csv >> file:::\n\n"
+end
 
 def display_intro_screen
   puts ''
@@ -39,7 +52,7 @@ end
 
 display_intro_screen
 
-scraper_o.check_choice
+scraper_o.check_choice(gets.strip.upcase)
 
 scraper_o.scrape
 

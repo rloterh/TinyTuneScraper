@@ -70,4 +70,8 @@ Style/NonNilCheck:
   Enabled: false
 Style/Encoding:
   Enabled: false
- 
+Metrics/MethodLength:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
+  

@@ -63,4 +63,12 @@ describe Scraper do
       expect(scraped_text.size > 500).to be true
     end
   end
+
+  context '#write_content' do
+    let(:new_array) { %w['hello hello hello'] }
+
+    example 'should create a new file' do
+      expect(new_array).to include('hello')
+    end
+  end
 end
