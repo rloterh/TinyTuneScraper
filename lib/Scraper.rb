@@ -46,14 +46,16 @@ class Scraper
   end
 
   def check_index
-    @goto_next_index = "press '>' or (.) to goto next indexed Page for Games indexed #{@choice_input}"
-    @goto_prev_index = "press '<' or (,) to goto previous indexed for Games indexed #{@choice_input}"
+    @goto_next_index = "press '>' or (.) to goto next indexed Page, for Games index #{@choice_input}"
+    @goto_prev_index = "press '<' or (,) to goto previous indexed for, Games index #{@choice_input}"
     @page_index = 1
     @page_index = 1 if @page_index == 0
     if @sub_path == ''
+      index_info
       @goto_next_index = ''
       @goto_prev_index = ''
       exit_remarks
+      exit
     end
 
     if @page_index == 1
@@ -61,7 +63,7 @@ class Scraper
       @goto_prev_index = ''
     end
     while @has_index
-      @goto_prev_index = "press '<' or (,) to goto previous indexed Page for Games indexed #{@choice_input}" if page_index >= 2
+      @goto_prev_index = "press '<' or (,) to goto previous indexed Page, for Games index #{@choice_input}" if page_index >= 2
 
       navigate_index
 
