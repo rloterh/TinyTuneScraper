@@ -5,7 +5,7 @@ require 'httparty'
 require 'csv'
 require 'io/console'
 
-require_relative '../lib/scraper.rb'
+require_relative '../lib/scraper'
 scraper_o = Scraper.new
 
 def exit_remarks
