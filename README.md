@@ -18,7 +18,6 @@ The source for the scraping content is [Apple iTunes App Store games](https://ap
   - **_gem install nokogiri_**
   - **_gem install httparty_**
   - **_gem install csv_**
-  - **_gem install pry_**
 - When completed with dependencies installation, run the commands **_cd bin_** and **_ruby main.rb_**
 
 | | | |
