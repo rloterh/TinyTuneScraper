@@ -62,9 +62,8 @@ class Scraper
       @goto_prev_index = ''
     end
     while @has_index
-      if page_index >= 2
-        @goto_prev_index = "press '<' or (,) to goto previous indexed Page for Games indexed #{@choice_input}"
-      end
+      @goto_prev_index = "press '<' or (,) to goto previous indexed Page for Games indexed #{@choice_input}" if page_index >= 2
+
       navigate_index
 
       next_input = STDIN.getch
