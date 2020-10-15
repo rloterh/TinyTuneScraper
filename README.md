@@ -32,6 +32,7 @@ The source for the scraping content is [Apple iTunes App Store games](https://ap
 - Run bash executable in the terminal using command **_./main.rb_**
 - Follow the instruction below the welcome screen. Type **_pop_**, **_more_** or a letter between **_|a-z|_**
 - If the scrape option has index pages, use **_>_** or **_<_** keys on your keyboard to navigate to the next or previous indexed page
+- To exit index page(s), press 'e'
 
 ### Running Test
 - In the terminal with Ruby installed, navigate to the project directory
