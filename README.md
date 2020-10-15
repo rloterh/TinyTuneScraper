@@ -17,7 +17,8 @@ The source for the scraping content is [Apple iTunes App Store games](https://ap
 - You can optionally install the dependencies individually using the commands below:
   - **_gem install nokogiri_**
   - **_gem install httparty_**
-  - **_gem install rubocop**
+  - **_gem install rubocop_**
+  - **_gem install rspec_**
   
 - When completed with dependencies installation, run the commands **_cd bin_** and **_ruby main.rb_**
 
@@ -25,12 +26,16 @@ The source for the scraping content is [Apple iTunes App Store games](https://ap
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="800" alt="Welcome screen screenshot" src="assets/screenshot_2.jpg">  Welcome screen/ Instructions |  <img width="800" alt="Porpular scrape screenshot" src="assets/screenshot_3.jpg">Porpular scrape|<img width="800" alt="Aphabetical scrape screenshot" src="assets/screenshot_4.jpg"> Aphabetical scrape |
 
-## Getting Started
+### Getting Started
 - Setup project directory in your ruby environment
-- In terminal, with Ruby installed, navigate *bin* diractory and run **_ruby main.rb_**
+- In the terminal, with Ruby installed, navigate *bin* diractory and run **_ruby main.rb_**
 - Run bash executable in the terminal using command **_./main.rb_**
 - Follow the instruction below the welcome screen. Type **_pop_**, **_more_** or a letter between **_|a-z|_**
 - If the scrape option has index pages, use **_>_** or **_<_** keys on your keyboard to navigate to the next or previous indexed page
+
+### Running Test
+- In the terminal with Ruby installed, navigate to the project directory
+- Run the command **_rspec_**
 
 ## Built With
 
