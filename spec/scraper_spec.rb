@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'httparty'
-require './lib/scraper'
+require_relative '../lib/scraper'
 
 describe Scraper do
   let(:scraper) { Scraper.new }
@@ -61,6 +61,14 @@ describe Scraper do
       end
       scraped_text = scraper.post_game
       expect(scraped_text.size > 500).to be true
+    end
+  end
+
+  context '#write_content' do
+    let(:new_array) { %w['hello hello hello'] }
+
+    example 'should create a new file' do
+      expect(new_array).to include('hello')
     end
   end
 end

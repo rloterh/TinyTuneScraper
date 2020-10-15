@@ -1,4 +1,2 @@
 .stickler.yml
-Gemfile
-Gemfile.lock
-lib/iOSGames.csv
+.github\workflows\tests.yml
