@@ -6,7 +6,7 @@ require 'csv'
 require 'io/console'
 
 require_relative '../lib/scraper'
-scraper_o = Scraper.new
+$scraper_o = Scraper.new
 
 def exit_remarks
   puts 'Thanks for scraping iTunes App Store games'
@@ -24,6 +24,13 @@ end
 def navigate_index
   puts @goto_next_index.to_s
   puts @goto_prev_index.to_s
+  puts @exit_index.to_s
+end
+
+def display_caution
+  print "          PLEASE INPUT A CORRECT OPTION TO CONTINUE..\n"
+  $scraper_o.choice_input = gets.strip.upcase
+  $scraper_o.check_choice
 end
 
 def index_info
@@ -59,8 +66,9 @@ end
 
 display_intro_screen
 
-scraper_o.check_choice(gets.strip.upcase)
+$scraper_o.choice_input = gets.strip.upcase
+$scraper_o.check_choice
 
-scraper_o.scrape
+$scraper_o.scrape
 
-scraper_o.check_index
+$scraper_o.check_index

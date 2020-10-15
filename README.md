@@ -17,6 +17,7 @@ The source for the scraping content is [Apple iTunes App Store games](https://ap
 - You can optionally install the dependencies individually using the commands below:
   - **_gem install nokogiri_**
   - **_gem install httparty_**
+  - **_gem install rubocop**
   
 - When completed with dependencies installation, run the commands **_cd bin_** and **_ruby main.rb_**
 

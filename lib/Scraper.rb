@@ -2,7 +2,7 @@ require_relative '../lib/csv_handler'
 
 class Scraper
   include CSVHandler
-  attr_accessor :post_game, :sub_path, :index_path, :has_index, :choice_input, :page_index, :goto_next_index, :goto_prev_index
+  attr_accessor :post_game, :sub_path, :index_path, :has_index, :choice_input, :page_index, :goto_next_index, :goto_prev_index, :exit_index
   def initialize
     @post_game = ''
     @sub_path = ''
@@ -12,10 +12,10 @@ class Scraper
     @page_index = nil
     @goto_next_index = ''
     @goto_prev_index = ''
+    @exit_index = ''
   end
 
-  def check_choice(c_input)
-    @choice_input = c_input
+  def check_choice
     if @choice_input.match(/^[[:alpha:]]$/)
       @sub_path = "?letter=#{@choice_input}"
     elsif @choice_input == 'POP'
@@ -25,7 +25,6 @@ class Scraper
       @sub_path = '?letter=*'
     else
       display_caution
-      check_choice(c_input)
     end
   end
 
@@ -48,12 +47,14 @@ class Scraper
   def check_index
     @goto_next_index = "press '>' or (.) to goto next indexed Page, for Games index #{@choice_input}"
     @goto_prev_index = "press '<' or (,) to goto previous indexed for, Games index #{@choice_input}"
+    @exit_index = "\n\tPress 'press 'e' to exit"
     @page_index = 1
     @page_index = 1 if @page_index == 0
     if @sub_path == ''
       index_info
       @goto_next_index = ''
       @goto_prev_index = ''
+      @exit_index = ''
       exit_remarks
       exit
     end
@@ -63,7 +64,7 @@ class Scraper
       @goto_prev_index = ''
     end
     while @has_index
-      @goto_prev_index = "press '<' or (,) to goto previous indexed Page, for Games index #{@choice_input}" if page_index >= 2
+      @goto_prev_index = "Press '<' or (,) to goto previous indexed Page, for Games Index #{@choice_input}" if page_index >= 2
 
       navigate_index
 
@@ -78,6 +79,12 @@ class Scraper
         @page_index -= 1
         @index_path = "&page=#{@page_index}#page"
         scrape
+      when 'e'
+        exit_remarks
+        exit
+      when 'E'
+        exit_remarks
+        exit
       end
       index_info
       if @post_game.size < 500
