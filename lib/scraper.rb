@@ -47,7 +47,7 @@ class Scraper
   def check_index
     @goto_next_index = "press '>' or (.) to goto next indexed Page, for Games index #{@choice_input}"
     @goto_prev_index = "press '<' or (,) to goto previous indexed for, Games index #{@choice_input}"
-    @exit_index = "\n\tPress 'press 'e' to exit"
+    @exit_index = "\n\tPress 'press 'e' to exit\n"
     @page_index = 1
     @page_index = 1 if @page_index == 0
     if @sub_path == ''
