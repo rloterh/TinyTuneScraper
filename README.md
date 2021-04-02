@@ -4,7 +4,7 @@
 
 
 ## Description
-This a mini console scraper application for iTunes App store games, developed using Ruby. The scraping source is [Apple iTunes App Store games website](https://apps.apple.com/us/genre/ios-games/id6014). Contents under the iTunes App Store games are categorized according to Most Popular, Alphabetical index and more games. In a similar way, running the TinyTuneScraper app you can choose a sorted list to to scrape its content. See a quick video of the project walkthrough [here](https://www.loom.com/share/efecaf78d234412fb2a0e8d3b3113e3b)
+This a mini console scraper application for iTunes App store games, developed using Ruby. The scraping source is [Apple iTunes App Store games website](https://apps.apple.com/us/genre/ios-games/id6014). Contents under the iTunes App Store games are categorized according to Most Popular, Alphabetical index and more games. In a similar way, running the Tiny Tune Scraper app you can choose a similary categorical or a sorted list to scrape its content. See a quick video of the project walkthrough [here](https://www.loom.com/share/efecaf78d234412fb2a0e8d3b3113e3b)
 <p align="center">
   <img src="assets/screenshot_1.jpg">
 </p>
