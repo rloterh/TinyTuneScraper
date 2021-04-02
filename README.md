@@ -17,6 +17,7 @@ This a mini console scraper application for iTunes App store games, developed us
 | [App Screenshots](#app-screenshots) |
 | [Built With](#built-with)   |
 | [Setup Instructions](#setup-instructions)   |
+| [Getting Started](#getting-started)   |
 | [Testing](#testing)   |
 | [Author](#author)       |
 | [License](#license)       |
